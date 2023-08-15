@@ -8,8 +8,8 @@ export default function Movies() {
 
   return (
     <main>
-      <MovieList data={query} />
       <SearchForm onSubmit={query => setQuery(query)} />
+      <MovieList data={query} />
     </main>
   );
 }

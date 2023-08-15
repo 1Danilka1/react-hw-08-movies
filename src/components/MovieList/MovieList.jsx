@@ -13,7 +13,7 @@ export default function MovieList({ data }) {
     try {
         const response = await fetchData(`https://api.themoviedb.org/3/search/movie?query=${q}&api_key=28eab61abc52e723036000843cb9a33c`);
         setMovies(response.results);
-        setStatus('resolve');
+        setStatus('resolved');
         setError(false)
     } catch (error) {
         setError(error.message);
@@ -41,7 +41,9 @@ export default function MovieList({ data }) {
               <NavLink
                 to={`${movie.id}`}
                 state={{ from: location }}
-              ></NavLink>
+              >
+               {movie.title || movie.name}
+              </NavLink>
             </li>
           ))}
         </ul>
