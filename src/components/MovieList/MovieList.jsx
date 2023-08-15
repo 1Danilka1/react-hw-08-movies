@@ -25,6 +25,7 @@ export default function MovieList({ data }) {
     searchMovieList(data);
   }, [data]);
 
+  
   if (status === 'pending') {
     return <p>Loading...</p>
   }
