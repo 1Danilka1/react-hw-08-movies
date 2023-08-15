@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetchUsers from '../fetchData';
 import { useParams } from 'react-router-dom';
+import css from './Cast.module.css'
 
 
 export default function Cast() {
@@ -35,15 +36,16 @@ export default function Cast() {
   }
   if (status === 'resolved') {
     return (
-      <ul>
+      <ul className={css.list_item}>
         {actors.map(actor => (
-          <li key={actor.id}>
+          <li key={actor.id} className={css.items}>
             {!actor.profile_path ? (
               <p>No image available</p>
             ) : (
               <img
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}?api_key=28eab61abc52e723036000843cb9a33c`}
                 alt={actor.name}
+                className={css.images}
               />
             )}
             <p>{actor.name}</p>

@@ -1,6 +1,7 @@
 import { useParams, Outlet, NavLink } from 'react-router-dom';
 import { Suspense, useEffect, useState } from 'react';
 import fetchData from '../../fetchData';
+import css from './MovieDetails.module.css'
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
@@ -40,14 +41,15 @@ export default function MovieDetails() {
   if (status === 'resolved') {
     return (
       <main>
-        <div>
+        <div className={css.container}>
           <div>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt=""
+              className={css.image}
             />
           </div>
-          <div>
+          <div className={css.opinion_container}>
             <h2>{movie.title || movie.name}</h2>
             <p>
               User score: {Math.round(movie.vote_average)}/10
@@ -70,20 +72,20 @@ export default function MovieDetails() {
             </div>
           </div>
         </div>
-        <div>
-        <p>Additional information</p>
-          <ul>
-            <li>
-              <NavLink to="cast">
-                Cast
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="reviews">
-                Reviews
-              </NavLink>
-            </li>
-          </ul>
+        <div> 
+          <p>Additional information</p>
+            <ul>
+              <li className={css.items}>
+                <NavLink to="cast" className={css.links}>
+                  Cast
+                </NavLink>
+              </li>
+              <li className={css.items}>
+                <NavLink to="reviews" className={css.links}>
+                  Reviews
+                </NavLink>
+              </li>
+            </ul>
         </div>
         <Suspense fallback={<p>Loading...</p>}>
           <Outlet />

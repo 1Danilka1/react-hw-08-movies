@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import fetchUsers from '../fetchData';
+import css from './Rewievs.module.css'
 import { useParams } from 'react-router-dom';
 
 
@@ -36,13 +37,13 @@ export default function Cast() {
   if (status === 'resolved') {
     if (reviews === null) {
       <p>We don't have any reviews for this movie</p>
-    }
+    } 
     return (
       <ul>
         {reviews.map(review => (
-          <li key={review.id}>
-            <h2>{review.author}</h2>
-            <p>{review.content}</p>
+          <li key={review.id} className={css.items}>
+            <h2 className={css.title}>{review.author}</h2>
+            <p className={css.text}>{review.content}</p>
           </li>
         ))}
       </ul>

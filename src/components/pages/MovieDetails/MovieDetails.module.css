@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.opinion_container {
+    width: 800px;
+    margin-left: 70px;
+}
+
+.image {
+    height: 500px;
+    width: 400;
+    margin: 30px 0 0 30px;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}
+ 
+.links:hover {
+    color: lightblue;
+}
+
+.items {
+    list-style: none;
+}

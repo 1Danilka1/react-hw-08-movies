@@ -8,9 +8,11 @@ import Reviews from './Reviews/Reviews';
 import NotFound from './NotFound/NotFound';
 
 const StyledLink = styled(NavLink)`
-  margin-right: 20px;
   text-decoration: none;
+  margin-left:30px;
+  padding-top: 20px;
   color: black;
+  font-size: 20px;
 
   &.active {
     color: orange;

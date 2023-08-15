@@ -1,0 +1,23 @@
+.container {
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.list_styles {
+    list-style: none;
+}
+
+.item_styles {
+    text-decoration: none;
+    margin-bottom: 7px;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}
+
+.links:hover {
+    color: lightskyblue;
+}

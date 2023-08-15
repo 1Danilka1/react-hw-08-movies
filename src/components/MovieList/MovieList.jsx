@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import fetchData from 'components/fetchData';
 import { NavLink, useLocation } from 'react-router-dom';
+import css from './MovieList.module.css'
 
 export default function MovieList({ data }) {
     const [status, setStatus] = useState('idle');
@@ -10,7 +11,7 @@ export default function MovieList({ data }) {
 
  const searchMovieList = async q => {
     setStatus('pending');
-    try {
+    try { 
         const response = await fetchData(`https://api.themoviedb.org/3/search/movie?query=${q}&api_key=28eab61abc52e723036000843cb9a33c`);
         setMovies(response.results);
         setStatus('resolved');
@@ -38,10 +39,11 @@ export default function MovieList({ data }) {
     return (
         <ul>
           {movies.map(movie => (
-            <li key={movie.id}>
+            <li key={movie.id} className={css.items}>
               <NavLink
                 to={`${movie.id}`}
                 state={{ from: location }}
+                className={css.links}
               >
                {movie.title || movie.name}
               </NavLink>
